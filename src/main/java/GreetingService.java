@@ -1,7 +1,12 @@
 class GreetingService {
 
     public String greet(String name) {
-        return "Hello " + name + "!";
+
+        if ("".equals(name)) {
+            return "Hello! Who are you?";
+        } else {
+            return "Hello " + name + "!";
+        }
     }
 
 }
