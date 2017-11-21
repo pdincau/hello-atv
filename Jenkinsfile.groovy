@@ -8,4 +8,8 @@ node {
         sh "${mvnHome}/bin/mvn clean test"
     }
 
+    stage("Build") {
+        sh "${mvnHome}/bin/mvn -DskipTests package"
+    }
+
 }
