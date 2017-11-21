@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: hello-atv
-        image: pdincau/hello-atv:8
+        image: pdincau/hello-atv
         ports:
         - containerPort: 8080
