@@ -19,7 +19,7 @@ node {
     }
 
     stage("Deploy") {
-        sh "kubectl create -f deployment.yml"
+        sh "kubectl set image deployment/hello-atv-deployment hello-atv=pdincau/hello-atv:${env.BUILD_NUMBER}"
     }
 
 }
