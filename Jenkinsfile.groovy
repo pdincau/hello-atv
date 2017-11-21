@@ -18,4 +18,8 @@ node {
         app.push("latest")
     }
 
+    stage("Deploy") {
+        sh "kubectl create -f deployment.yml"
+    }
+
 }
