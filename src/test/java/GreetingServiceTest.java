@@ -6,7 +6,6 @@ public class GreetingServiceTest {
 
     @Test
     public void it_pass() {
-
         assertEquals("Hello Ivo!", "Hello Ivo!");
     }
 
