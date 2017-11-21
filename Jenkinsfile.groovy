@@ -9,15 +9,13 @@ node {
     }
 
     stage("Build") {
-        sh "${mvnHome}/bin/mvn -DskipTest package"
+        sh "${mvnHome}/bin/mvn -DskipTests package"
         app = docker.build("pdincau/hello-atv")
     }
 
     stage("Push artifact") {
-        docker.withRegistry('https://registry.hub.docker.com', 'pdincau-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
     }
 
 }
