@@ -9,7 +9,8 @@ node {
     }
 
     stage("Build") {
-        sh "${mvnHome}/bin/mvn -DskipTests package"
+        sh "${mvnHome}/bin/mvn -DskipTest package"
+        docker.build("pdincau/hello-atv")
     }
 
 }
