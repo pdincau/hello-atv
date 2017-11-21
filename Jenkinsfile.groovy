@@ -10,7 +10,7 @@ node {
 
     stage("Build") {
         sh "${mvnHome}/bin/mvn -DskipTest package"
-        docker.build("pdincau/hello-atv")
+        app = docker.build("pdincau/hello-atv")
     }
 
     stage("Push artifact") {
