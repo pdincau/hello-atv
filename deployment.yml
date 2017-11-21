@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+    name: hello-atv-deployment
+    labels:
+        app: hello-atv
+spec:
+  selector:
+    matchLabels:
+      app: hello-atv
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-atv
+    spec:
+      containers:
+      - name: hello-atv
+        image: pdincau/hello-atv:8
+        ports:
+        - containerPort: 8080
