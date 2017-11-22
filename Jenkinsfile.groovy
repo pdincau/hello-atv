@@ -14,7 +14,7 @@ node {
     }
 
     stage("UAT") {
-        docker.image('pdincau/hello-java').withRun('-p 9999:8080') { c ->
+        docker.image('pdincau/hello-atv').withRun('-p 9999:8080') { c ->
             sh 'sleep 5'
             sh 'curl -v --fail 127.0.0.1:9999/ping'
             sh 'curl -s http://127.0.0.1:8081/hello\?name\=Ivo | grep -a \"Hello Ivo\!\"'
