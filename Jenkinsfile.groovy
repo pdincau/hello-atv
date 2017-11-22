@@ -6,4 +6,8 @@ node {
         checkout scm
         sh "${mavenHome}/bin/mvn clean test"
     }
+
+    stage("Build") {
+        sh "${mavenHome}/bin/mvn package"
+    }
 }
