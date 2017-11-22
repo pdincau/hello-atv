@@ -19,6 +19,6 @@ node {
     }
 
     stage("Deploy new version") {
-        sh "kubectl set image deployment/hello-java-deployment hello-java=pdincau/hello-ivo:${env.BUILD_NUMBER}"
+        sh "kubectl set image deployment/hello-atv-deployment hello-atv=pdincau/hello-ivo:${env.BUILD_NUMBER}"
     }
 }
