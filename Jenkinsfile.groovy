@@ -13,6 +13,14 @@ node {
         app = docker.build("pdincau/hello-ivo")
     }
 
+    stage('UAT') {
+        docker.image('pdincau/hello-ivo').withRun('-p 9999:8080') { c ->
+            sh 'sleep 5'
+            sh 'curl -v --fail 127.0.0.1:9999/ping'
+        }
+    }
+
+
     stage("Push image") {
         app.push("${env.BUILD_NUMBER}")
         app.push("latest")
