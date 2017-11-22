@@ -17,4 +17,8 @@ node {
         app.push("${env.BUILD_NUMBER}")
         app.push("latest")
     }
+
+    stage("Deploy new version") {
+        sh "kubectl set image deployment/hello-java-deployment hello-java=pdincau/hello-ivo:${env.BUILD_NUMBER}"
+    }
 }
