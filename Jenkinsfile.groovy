@@ -10,7 +10,7 @@ node {
 
     stage("Build") {
         sh "${mavenHome}/bin/mvn package"
-        app = doker.build("pdincau/hello-ivo")
+        app = docker.build("pdincau/hello-ivo")
     }
 
     stage("Push image") {
