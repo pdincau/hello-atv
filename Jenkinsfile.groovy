@@ -1,6 +1,7 @@
 node {
 
     def mvnHome = tool "Maven"
+    def app
 
     stage("Checkout and Test") {
         checkout scm
@@ -9,5 +10,6 @@ node {
 
     stage("Build") {
         sh "${mvnHome}/bin/mvn package"
+        app = docker.build("pdincau/hello-atv")
     }
 }
