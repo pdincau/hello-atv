@@ -16,4 +16,8 @@ node {
     stage("Push Image") {
         app.push("${env.BUILD_NUMBER}")
     }
+
+    stage("Deploy") {
+        sh "kubectl set image deployment/hello-atv-deployment hello-atv=pdincau/hello-atv:${env.BUILD_NUMBER}"
+    }
 }
