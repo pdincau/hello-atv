@@ -12,4 +12,8 @@ node {
         sh "${mvnHome}/bin/mvn package"
         app = docker.build("pdincau/hello-atv")
     }
+
+    stage("Push Image") {
+        app.push("${env.BUILD_NUMBER}")
+    }
 }
