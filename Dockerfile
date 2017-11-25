@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY target/hello-atv-jar-with-dependencies.jar ./app.jar
 
-RUN ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]
